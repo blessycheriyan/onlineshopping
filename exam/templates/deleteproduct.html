@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% if user %}
+<ol>
+    {% for e in user %}
+     <form action="deletecart" method="POST">
+    <li> <h1 class="title"> Collection:</h1> </li>
+    <ul>
+
+
+
+
+        <li >{{e.name}}</li>
+         <li>price{{e.price}}</li>
+
+ <input type="text" name="dressid"   style="display:none" value={{e.dressid}} class="form-control" class="name">
+        <script type="text/javascript">
+
+
+        </script>
+
+            {% csrf_token %}
+
+                 <li><img src="{{e.data.url}}"></li>
+
+
+                 <button type='submit' ><h1>Buy</h1></button>
+
+           </form>
+    </ul>
+    {% endfor %}
+</ol>
+
+{% endif %}
+
+</body>
+</html>

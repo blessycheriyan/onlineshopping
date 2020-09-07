@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action='admin1' method="POST">
+    {% csrf_token %}
+    <center><button type='submit'><h1> Admin Register</h1></button></center>
+</form><br>
+<form action='admin0' method="POST">
+    {% csrf_token %}
+    <center><button type='submit'><h1> Admin view</h1></button></center>
+</form><br>
+<form action='user1' method="POST">
+    {% csrf_token %}
+    <center><button type='submit'><h1>User Register</h1></button></center>
+</form><br>
+<form action='user0' method="POST">
+    {% csrf_token %}
+    <center><button type='submit'><h1>User view</h1></button></center>
+</form><br>
+<form action='product1' method="POST">
+    {% csrf_token %}
+    <center><button type='submit'><h1> Product Register</h1></button></center>
+</form><br>
+<form action='product0' method="POST">
+    {% csrf_token %}
+    <center><button type='submit'><h1>Product view</h1></button></center>
+</form><br>
+<form action='search2' method="POST">
+    {% csrf_token %}
+    <center><button type='submit'><h1>Serach here </h1></button></center>
+</form><br>
+<form action='login' method="POST">
+    {% csrf_token %}
+    <center><button type='submit'><h1> Login</h1></button></center>
+</form><br>
+<form action='logout' method="POST">
+    {% csrf_token %}
+    <center><button type='submit'><h1> Logout</h1></button></center>
+</form><br>
+<form action='book1' method="POST">
+    {% csrf_token %}
+    <center><button type='submit'><h1> view book</h1></button></center>
+</form><br>
+<form action='booking' method="POST">
+    {% csrf_token %}
+    <center><button type='submit'><h1>Book</h1></button></center>
+</form><br>
+</body>
+</html>

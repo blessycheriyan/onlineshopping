@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <div class="container">
+
+         <marquee behavior="slide" direction="right"><h1><i>Online Trends</i></h1></marquee>
+          <form action="search1" method="POST" enctype="multipart/form-data">
+                 {% csrf_token %}
+                    <div class="container h-100">
+                      <div class="d-flex justify-content-center h-100">
+                        <div class="searchbar">
+                          <input class="search_input" type="text" name="name" placeholder="Search...">
+                          <button class="search_icon"><i class="fas fa-search"></i>
+                        </div>
+                      </div>
+                    </div>
+
+   </form>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="col-auto">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="homepg2">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<br>
+<br>
+{% if user %}
+<ol>
+    {% for e in user %}
+<form action="add" method="POST">
+
+         {% csrf_token %}
+         <ul>
+            <div class="gallery">
+                <h5>
+                    <li>{{e.name}}</li></h5><br>
+                <a target="_blank" href="{{e.data.url}}">
+                    <img src="{{e.data.url}}"alt="Forest" width="600" height="400">
+                </a>
+                <div class="desc"> <br>
+                    <br>
+                    <h5>
+                    Price <span class="input-group-addon"> <i class="fa fa-inr"> {{e.price}}</i></span></><br>
+                                                    <br>
+                    <button class="btn btn-warning btn-lg">
+                        <i class="fa fa-refresh fa-spin"></i>Buy Now</button>
+                      <input type="text" name="na"   style="display:none" value={{e.name}} class="form-control" class="name">
+
+
+
+                </div>
+             </div>
+
+
+
+
+
+
+
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+        </ul>
+ </form>
+    {% endfor %}
+</ol>
+{% endif %}
+
+<style type="text/css">
+ .bg-dark{
+      background-color:#04207e !important;
+   }
+   .navbar-brand{
+
+      font-weight:bold;
+      font-family:monospace;
+      font-size:38px;
+   }
+   .navbar-dark .navbar-nav .nav-link{
+
+       font-weight:700;
+       font-size:14px;
+       text-transform:uppercase;
+
+   }
+   .navbar-dark .navbar-nav .nav-item{
+
+   }
+
+h1{
+
+  color: brown;
+  text-shadow: 3px 2px red;
+}
+
+}
+h6{
+  color: red;
+  text-align: left;
+}
+h4{
+  color: skyblue;
+  text-align: center;
+}
+
+h2{
+  color: pink;
+  text-align: right;
+}
+h5{
+  color: red;
+  text-align: right;
+}
+li{
+  color: blue;
+  text-align: center;
+}
+ .Login{
+        padding:35px 0;
+        text-align:center;
+        background-color:#04204a;
+   }
+   .Login h1{
+        font-size:45px;
+        margin-bottom:85px;
+        color:#ff;
+   }
+   .Login .card{
+        border:30px solid #0062cc;
+   }
+   .Login .card-body{
+        padding:1.85rem.9rem;
+        background-color:#061a37;
+   }
+   .Login .card-body .card-title{
+        color:#fff;
+        font-weight:600;
+   }
+   .services .card-body .card-text{
+         color:#fff;
+   }
+   .Login .btn-primary{
+          color:#fff;
+          background-color:#04204a;
+          border-color:#0062cc;
+   }
+   .Login .btn-primary:hover{
+           color:#fff;
+           background-color:#04204a;
+           border-color:#0062cc;
+   }
+
+
+
+
+    .searchbar{
+    margin-bottom: auto;
+    margin-top: auto;
+    height: 60px;
+    background-color: #0062cc;
+    border-radius: 30px;
+    padding: 10px;
+    }
+
+    .search_input{
+    color: white;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 0;
+    caret-color:transparent;
+    line-height: 40px;
+    transition: width 0.4s linear;
+    }
+
+    .searchbar:hover > .search_input{
+    padding: 0 10px;
+    width: 450px;
+    caret-color:red;
+    transition: width 0.4s linear;
+    }
+
+    .searchbar:hover > .search_icon{
+    background: white;
+    color: #e74c3c;
+    }
+
+    .search_icon{
+    height: 40px;
+    width: 40px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color:blue;
+    text-decoration:brown;
+ }
+
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 300px;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: 100;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+</style>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <div class="container">
+
+         <marquee behavior="slide" direction="left"><h1><i>User FeedBack</i></h1></marquee>
+
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="col-auto">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="adminlogout1">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<br>
+<br>
+<br>
+{% if user %}
+<ol>
+
+          <table id="customers">
+
+                    <tr>
+                              <th>Username</th>
+                              <th>Rating</th>
+
+                              <th>Comments</th>
+
+
+
+
+
+                    </tr>
+
+
+
+            {% for e in user %}
+
+
+
+
+
+                            <tr>
+
+                                <td>{{e.name}}</td>
+                                <td>{{e.rate}}</td>
+                                <td>{{e.comment}}</td>
+
+                            </tr>
+
+
+
+            {% endfor %}
+          </table>
+</ol>
+{% endif %}
+<style>
+
+.bg-dark{
+      background-color:#04207e !important;
+   }
+   .navbar-brand{
+
+      font-weight:bold;
+      font-family:monospace;
+      font-size:38px;
+   }
+   .navbar-dark .navbar-nav .nav-link{
+
+       font-weight:700;
+       font-size:14px;
+       text-transform:uppercase;
+
+   }
+   .navbar-dark .navbar-nav .nav-item{
+
+   }
+
+h1{
+  color: white;
+  text-shadow: 3px 2px red;
+}
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 98%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color:	#00FF00;}
+
+#customers tr:hover {background-color: 	#20B2AA;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #8A2BE2;
+  color: white;
+}
+
+</style>
+</body>
+</html>
+
+

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <div class="container">
+
+         <marquee behavior="slide" direction="left"><h1><i>Profile</i></h1></marquee>
+
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="col-auto">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="adminlogout1">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<br>
+<br>
+<br>
+{% if user %}
+<ol>
+
+
+
+
+
+            {% for e in user %}
+
+                    <div class="card">
+                          <img src="{{e.data.url}}">
+                                    <span class="input-group-addon"> <i class="fa fa-user icon" ></i></span>
+                                    <p>{{e.name}}</p>
+
+                                    <span class="input-group-addon"> <i class="fa fa-address-card icon" ></i></span>
+                                    <p class="title">{{e.address}}</p>
+                                     <span class="input-group-addon"> <i class="fa fa-envelope icon" ></i></span>
+                             <p>{{e.email}}</p>
+                                     <span class="input-group-addon"> <i class='fas fa-gopuram'></i></span>
+                            <p>{{e.city}}</p>
+                                         <span class="input-group-addon"> <i class="fa fa-flag" aria-hidden="true"></i></i></span>
+                             <p>{{e.country}}</p>
+                                     <span class="input-group-addon"> <i class="fa fa-genderless"></i></span>
+                              <p>{{e.gender}}</p>
+                                     <span class="input-group-addon"> <i class="fa fa-phone" aria-hidden="true"></i></span>
+                            <p>{{e.contactno}}</p>
+                                         <span class="input-group-addon"> <i class="fa fa-lock icon" ></i></span>
+                            <p>{{e.password}}</p>
+                    </div>
+                <br>
+                <br>
+
+
+
+
+            {% endfor %}
+
+</ol>
+{% endif %}
+<style>
+
+.bg-dark{
+      background-color:#04207e !important;
+   }
+   .navbar-brand{
+
+      font-weight:bold;
+      font-family:monospace;
+      font-size:38px;
+   }
+   .navbar-dark .navbar-nav .nav-link{
+
+       font-weight:700;
+       font-size:14px;
+       text-transform:uppercase;
+
+   }
+   .navbar-dark .navbar-nav .nav-item{
+
+   }
+
+h1{
+  color: white;
+  text-shadow: 3px 2px red;
+}
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
+</style>
+</body>
+</html>
+
+

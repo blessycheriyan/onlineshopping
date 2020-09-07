@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.4/css/bootstrap.min.css"
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <div class="container">
+
+         <marquee behavior="slide" direction="left"><h1><i>Booking Details</i></h1></marquee>
+
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="col-auto">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="adminlogout1">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<br>
+<br>
+{% if user %}
+<ol>
+
+        <table id="customers">
+
+
+                    <tr>
+                        <th>Date</th>
+                        <th>UserId</th>
+                        <th>Quantity</th>
+                        <th>Total Rate</th>
+                         <th>Status</th>
+                             <th>Edit</th>
+
+                    </tr>
+
+        {% for e in user %}
+             <form action="user3" method="POST">
+                 {% csrf_token %}
+
+                        <tr>
+                                <td>{{e.date}}</td>
+                                <td>{{e.usr}}</td>
+                                <td>{{e.quantity}}</td>
+                                <td>{{e.totalprice}}</td>
+
+                            <td><input type="text" name="status" id="a" value="{{e.status}}"></td>
+
+                            <td><button type="submit" class="btn btn-lg btn-primary" >Edit Here </button></td>
+
+                        </tr>
+<td><script>
+  $(document).ready(function(){
+
+        $("#a").keyup(function(){
+
+
+             var a=1;
+             var b=0;
+             if(a>b){
+                document.write("Delivered");
+             }
+             else{
+                 document.write("Pending");
+             }
+         });
+  });
+
+
+ </script></td>
+
+
+
+ <td>{{error}}</td>
+
+      {% endfor %}
+
+     </table>
+    </form>
+</ol>
+{% endif %}
+
+
+
+
+
+<style>
+.bg-dark{
+      background-color:#04207e !important;
+   }
+   .navbar-brand{
+
+      font-weight:bold;
+      font-family:monospace;
+      font-size:38px;
+   }
+   .navbar-dark .navbar-nav .nav-link{
+
+       font-weight:700;
+       font-size:14px;
+       text-transform:uppercase;
+
+   }
+   .navbar-dark .navbar-nav .nav-item{
+
+   }
+
+h1{
+  color: silver;
+  text-shadow: 3px 2px red;
+}
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #FA8072;}
+
+#customers tr:hover {background-color: #800080;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #8A2BE2;
+  color: white;
+}
+
+
+
+
+
+
+</style>
+</body>
+</html>
+
+
+
+
+

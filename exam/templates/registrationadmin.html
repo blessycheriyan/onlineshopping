@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+<form method="POST">
+   <h1 class="title"> Admin Registration:</h1><br>
+     {% csrf_token %}
+     {{form.as_p}}
+     <input type="submit" value="save"><br>
+ </form>
+</body>
+</html>

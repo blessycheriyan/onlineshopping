@@ -1,0 +1,271 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <div class="container">
+          <marquee behavior="slide" direction="right"><h1><i> Please Provide Your Feedback Below:</i></h1></marquee>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="col-auto">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="homepg2">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+{% block content %}
+<div class="container">
+
+                <div class="login-form col-md-4 offset-md-4">
+
+                    <h1 class="title"><i>Feedback</i></h1>
+                    <center><h4><i>{{error}}</i></h4></center>
+
+
+
+            <form method="POST" action="feed">
+                {% csrf_token%}
+                    <div class="d-inline">
+                                    <span class="input-group-addon"> <i class="fa fa-user icon" ></i></span>
+
+					    <div class="form-group">
+							<label>Username</label><br>
+						    <input type="text" name="name" readonly value="{{name}}" class="form-control">
+
+                        </div><br>
+                    </div><br>
+
+
+
+                 <div class="d-inline">
+                                     <span class="input-group-addon"> <i class="fas fa-smile" ></i></span>
+                    <div class="form-group">
+                        <p>Rating</p>
+						<label class="container">Excellent
+						  <input type="radio" checked="checked" name="rate" value="Excellent"class="form-control" >
+						  <span class="checkmark"></span>
+						</label>
+						<label class="container">Good
+						  <input type="radio" name="rate" value="Good">
+						  <span class="checkmark"></span>
+						</label>
+						<label class="container">Average
+						  <input type="radio" name="rate" value="Average">
+						  <span class="checkmark"></span>
+						</label>
+						<label class="container">Very Poor
+						  <input type="radio" name="rate" value="Very Poor">
+						  <span class="checkmark"></span>
+						</label>
+						 <label class="container">Bad
+						  <input type="radio" name="rate" value="Bad">
+						  <span class="checkmark"></span>
+						</label>
+                        <label class="container">Very Good
+						  <input type="radio" name="rate" value="Good">
+						  <span class="checkmark"></span>
+						</label>
+                        <label class="container">Fair
+						  <input type="radio" name="rate" value="Good">
+						  <span class="checkmark"></span>
+						</label>
+					</div>
+                 </div>
+                 <div class="d-inline">
+                                        <span class="input-group-addon"> <i class="fas fa-comment" ></i></span>
+
+
+                    <div class="form-group">
+                        <label>Comments</label>
+
+                       <textarea class="form-control" type="textarea" name="comment" placeholder="Your Comments ............................." maxlength="6000" rows="7"></textarea>
+					</div>
+                 </div>
+                                            <div class="row">
+                                    <div class="col-sm-12 form-group">
+                                        <button type="submit" class="btn btn-lg btn-warning btn-block" >Submit </button>
+                                    </div>
+                               </div>
+
+        		</div>
+    		</div>
+</form>
+
+{% endblock %}
+
+<style type="text/css">
+
+body{
+
+
+	background-size:cover;
+
+
+}
+.bg-dark{
+      background-color:#04207e !important;
+   }
+   .navbar-brand{
+
+      font-weight:bold;
+      font-family:monospace;
+      font-size:38px;
+   }
+   .navbar-dark .navbar-nav .nav-link{
+
+       font-weight:700;
+       font-size:14px;
+       text-transform:uppercase;
+
+   }
+   .navbar-dark .navbar-nav .nav-item{
+
+   }
+
+
+
+
+
+
+/* The container */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+
+
+h1{
+  color: yellow;
+  text-shadow: 3px 2px red;
+}
+
+h4{
+  color: red;
+
+}
+
+
+   body{
+
+
+       background-image:url("{%static 'img/sar16.jpeg' %}");
+      background-size:cover;
+   }
+
+
+    .login-form{
+
+       margin-top: 50px;
+       box-shadow: 0px 0px 10px 10px grey;
+       border-radius:50px;
+       padding-bottom:50px;
+       background: white;
+	   min-width:40%;margin:0 auto;max-width:10%;
+
+    }
+
+
+     .title{
+        background: #007bbf;
+        padding: 10px;
+        text-align: center;
+        color:#fff;
+        border-radius: 0px 0px 20px 10px;
+     }
+
+
+
+
+
+
+
+
+</style>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,296 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="col-auto">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="homepg1">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+{% block content %}
+<div class="container justify-content-center">
+    <div class="card container mt-5" style="min-width:50%;margin:0 auto;background-color:#023474;color:#023474;max-width:50%;">
+        <div class="card-body">
+            <h1 style="color:white;text-align:center;margin-bottom:-3%;margin-top:25px;">REGISTER</h1><br>
+            <form method="POST" action="register" enctype="multipart/form-data">
+
+                {% csrf_token%}
+                <table class="table">
+                    <center><h4><i>{{error}}</i></h4></center>
+                    <tr>
+                        <div class="cardp input-group">
+                            <td>
+                                <div class="d-inline">
+                                    <span class="input-group-addon"> <i class="fa fa-user icon" ></i></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="d-inline">
+                                    <input type="text" class="form-control" name="name" placeholder="Username" />
+                                </div>
+                            </td>
+                        </div>
+
+                    </tr>
+                    <tr>
+                            <div class="cardp input-group">
+                                <td>
+                                    <div class="d-inline">
+                                        <span class="input-group-addon"> <i class="fa fa-envelope icon" ></i></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="d-inline">
+                                        <input type="email" class="form-control" name="email" placeholder="Email" />
+                                    </div>
+                                </td>
+                            </div>
+                    </tr>
+
+                    <tr>
+                        <div class="cardp input-group">
+                            <td>
+                                <div class="d-inline">
+                                    <span class="input-group-addon"> <i class="fa fa-address-card icon" ></i></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="d-inline">
+                                    <input type="text" class="form-control" name="address" placeholder="Address" />
+                                </div>
+                            </td>
+                        </div>
+                    </tr>
+                     <tr>
+                            <div class="cardp input-group">
+                                <td>
+                                    <div class="d-inline">
+                                        <span class="input-group-addon"> <i class="fa fa-phone icon" aria-hidden="true"></i></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="d-inline">
+                                        <input type="contactno" class="form-control" name="contactno" placeholder="Contact No" />
+                                    </div>
+                                </td>
+                            </div>
+                    </tr>
+                    <tr>
+                        <div class="cardp input-group">
+                                <td>
+                                    <div class="d-inline">
+                                        <span class="input-group-addon"> <i class='fas fa-gopuram icon'></i></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="d-inline">
+
+
+
+                                          <select name="city" class="form-control"  >
+
+                                            <option>Select City:</option>
+                                            <option>Erankulam</option>
+                                            <option>Thiruvalla</option>
+                                            <option>Trivandrum</option>
+                                            <option>Mavelikara</option>
+                                            <option>Kollam</option>
+                                            <option>Alappuzha</option>
+                                            <option>Pandulam</option>
+                                            <option>Pattoor</option>
+                                            <option>Kayakulam</option>
+                                            <option>Kottyam</option>
+                                            <option>Chenganuur</option>
+                                            <option>Changassery</option>
+                                          </select>
+                                    </div>
+
+
+                                    </div>
+                                </td>
+                        </div>
+                    </tr>
+                     <tr>
+                        <div class="cardp input-group">
+                                <td>
+                                    <div class="d-inline">
+                                        <span class="input-group-addon"> <i class="fa fa-genderless icon"></i></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="d-inline">
+
+
+
+                                         <select name="gender" class="form-control" >
+                                            <option>Gender:</option>
+                                            <option>Male</option>
+                                            <option>Female</option>
+
+                                          </select>
+                                    </div>
+
+
+                                    </div>
+                                </td>
+                        </div>
+                        <tr>
+                            <div class="cardp input-group">
+                                <td>
+                                    <div class="d-inline">
+                                        <span class="input-group-addon"> <i class="fa fa-flag icon" aria-hidden="true"></i></i></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="d-inline">
+
+
+
+                                          <select name="country" class="form-control" >
+
+                                            <option>Select Country:</option>
+                                            <option>Dubai</option>
+                                            <option>Bangalore</option>
+                                            <option>India</option>
+                                            <option>Australia</option>
+                                            <option>Brazil</option>
+                                            <option>Canada</option>
+                                            <option>Russia</option>
+                                            <option>Bahrain</option>
+                                            <option>Egypt</option>
+                                            <option>France</option>
+                                            <option>Japan</option>
+                                            <option>Kuwait</option>
+                                          </select>
+                                    </div>
+
+
+                                    </div>
+                                </td>
+                        </div>
+                    </tr>
+                    </tr>
+                     <div class="cardp input-group">
+                            <td>
+                                <div class="d-inline">
+                                    <span class="input-group-addon"> <i class="fa fa-image icon"></i></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="d-inline">
+                                    <input type="file" class="form-control" name="picture" placeholder="Image" />
+                                </div>
+                            </td>
+                        </div>
+                    <tr>
+                        <div class="cardp input-group">
+                            <td>
+                                <div class="d-inline">
+                                    <span class="input-group-addon"> <i class="fa fa-lock icon" ></i></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="d-inline">
+                                    <input type="password" class="form-control" name="password" placeholder="Password"/>
+                                </div>
+                            </td>
+
+                        </div>
+                    </tr>
+
+                    <tr>
+                        <div class="cardp input-group">
+                            <td>
+                                <div class="d-inline">
+                                    <span class="input-group-addon"> <i class="fa fa-calendar icon" aria-hidden="true"></i></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="d-inline">
+                                     <input type="date" class="form-control" name="date" placeholder="date"/>
+
+                                </div>
+                            </td>
+
+                        </div>
+
+                </table>
+                <div class="d-flex justify-content-center">
+                    <input type="submit" class="btn btn-info " value="Sign Up">
+                </div>
+            </form><br>
+            <a href="login">
+
+                 <h6>Are you already Registered?</h6>
+               <input type="submit" class="btn btn-info" value="Login Here"></a><br>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+<style type="text/css">
+
+body{
+
+	background-image:url("{%static 'img/sar23.jpeg' %}");
+	background-size:cover;
+
+
+}
+.bg-dark{
+      background-color:#04207e !important;
+   }
+   .navbar-brand{
+
+      font-weight:bold;
+      font-family:monospace;
+      font-size:38px;
+   }
+   .navbar-dark .navbar-nav .nav-link{
+
+       font-weight:700;
+       font-size:14px;
+       text-transform:uppercase;
+
+   }
+   .navbar-dark .navbar-nav .nav-item{
+
+   }
+
+
+
+
+h4{
+  color: yellow;
+
+}
+
+
+</style>
+</body>
+</html>

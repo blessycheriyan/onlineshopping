@@ -1,0 +1,337 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="col-auto">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="homepg2">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+{% block content %}
+<div class="container justify-content-center">
+
+    <div class="card container mt-5" style="min-width:50%;margin:0 auto;background-color:#023474;color:#023474;max-width:50%;">
+        <div class="card-body">
+
+        {% if user %}
+<ol>
+
+            {% for e in user %}
+        <form method="POST" action="user1" enctype="multipart/form-data">
+                {% csrf_token%}
+                <table class="table"><br>
+
+                    <br>
+                    <br>
+                    <br>
+                        <input type="text" name="userid"   style="display:none" value={{e.userid}} class="form-control" class="userid">
+
+                             <img src="{{e.data.url}}" style="width:300px">
+
+
+                    <tr>
+                        <div class="cardp input-group">
+                            <td>
+                                <div class="d-inline">
+                                    <span class="input-group-addon"> <i class="fa fa-user icon" ></i></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="d-inline">
+                                    <input type="text" class="form-control" value="{{e.name}}" name="name">
+                                </div>
+                            </td>
+                        </div>
+
+                    </tr>
+                    <tr>
+                            <div class="cardp input-group">
+                                <td>
+                                    <div class="d-inline">
+                                        <span class="input-group-addon"> <i class="fa fa-envelope icon" ></i></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="d-inline">
+                                        <input type="email" class="form-control" value="{{e.email}}" name="email">
+                                    </div>
+                                </td>
+                            </div>
+                    </tr>
+
+                    <tr>
+                        <div class="cardp input-group">
+                            <td>
+                                <div class="d-inline">
+                                    <span class="input-group-addon"> <i class="fa fa-address-card icon" ></i></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="d-inline">
+                                    <input type="text" class="form-control" value="{{e.address}}" name="address">
+                                </div>
+                            </td>
+                        </div>
+                    </tr>
+                     <tr>
+                            <div class="cardp input-group">
+                                <td>
+                                    <div class="d-inline">
+                                        <span class="input-group-addon"> <i class="fa fa-phone icon" aria-hidden="true"></i></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="d-inline">
+                                        <input type="contactno" class="form-control" value="{{e.contactno}}" name="contactno">
+                                    </div>
+                                </td>
+                            </div>
+                    </tr>
+                    <tr>
+                        <div class="cardp input-group">
+                                <td>
+                                    <div class="d-inline">
+                                        <span class="input-group-addon"> <i class='fas fa-gopuram icon'></i></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="d-inline">
+
+                                          <select name="city" class="form-control" >
+
+                                            <option>{{e.city}}</option>
+                                            <option>Erankulam</option>
+                                            <option>Thiruvalla</option>
+                                            <option>Trivandrum</option>
+                                            <option>Mavelikara</option>
+                                            <option>Kollam</option>
+                                            <option>Alappuzha</option>
+                                            <option>Pandulam</option>
+                                            <option>Pattoor</option>
+                                            <option>Kayakulam</option>
+                                            <option>Kottyam</option>
+                                            <option>Chenganuur</option>
+                                            <option>Changassery</option>
+                                          </select>
+                                    </div>
+
+
+                                    </div>
+                                </td>
+                        </div>
+                    </tr>
+                     <tr>
+                        <div class="cardp input-group">
+                                <td>
+                                    <div class="d-inline">
+                                        <span class="input-group-addon"> <i class="fa fa-genderless icon"></i></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="d-inline">
+
+
+
+                                         <select name="gender" class="form-control" >
+
+                                            <option>{{e.gender}}</option>
+                                            <option>Male</option>
+                                            <option>Female</option>
+
+                                          </select>
+                                    </div>
+
+
+                                    </div>
+                                </td>
+                        </div>
+                        <tr>
+                            <div class="cardp input-group">
+                                <td>
+                                    <div class="d-inline">
+                                        <span class="input-group-addon"> <i class="fa fa-flag icon" aria-hidden="true"></i></i></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="d-inline">
+
+
+
+                                          <select name="country" class="form-control" >
+
+                                            <option>{{e.country}}</option>
+                                            <option>Dubai</option>
+                                            <option>Bangalore</option>
+                                            <option>India</option>
+                                            <option>Australia</option>
+                                            <option>Brazil</option>
+                                            <option>Canada</option>
+                                            <option>Russia</option>
+                                            <option>Bahrain</option>
+                                            <option>Egypt</option>
+                                            <option>France</option>
+                                            <option>Japan</option>
+                                            <option>Kuwait</option>
+                                          </select>
+                                    </div>
+
+
+                                    </div>
+                                </td>
+                        </div>
+                    </tr>
+                    </tr>
+                     <div class="cardp input-group">
+                            <td>
+                                <div class="d-inline">
+
+                                </div>
+                            </td>
+
+                    <tr>
+                        <div class="cardp input-group">
+                            <td>
+                                <div class="d-inline">
+                                    <span class="input-group-addon"> <i class="fa fa-lock icon" ></i></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="d-inline">
+                                    <input type="password" class="form-control" value="{{e.password}}" name="password">
+                                </div>
+                        </div>
+                            </td>
+
+                    </tr>
+
+                    <tr>
+                        <div class="cardp input-group">
+                            <td>
+                                <div class="d-inline">
+                                    <span class="input-group-addon"> <i class="fa fa-calendar icon" aria-hidden="true"></i></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="d-inline">
+                                     <input type="date" class="form-control" value="{{e.date}}" name="date">
+
+                                </div>
+                            </td>
+
+                        </div>
+
+                </table>
+                <div class="d-flex justify-content-center">
+                    <input type="submit" class="btn btn-info " value="Save">
+                </div><br>
+
+            </form><br>
+
+        </div>
+    </div>
+</div>
+   {% endfor %}
+
+</ol>
+{% endif %}
+{% endblock %}
+<style type="text/css">
+
+body{
+
+	background-image:url("{%static 'img/sar23.jpeg' %}");
+	background-size:cover;
+
+
+}
+.bg-dark{
+      background-color:#04207e !important;
+   }
+   .navbar-brand{
+
+      font-weight:bold;
+      font-family:monospace;
+      font-size:38px;
+   }
+   .navbar-dark .navbar-nav .nav-link{
+
+       font-weight:700;
+       font-size:14px;
+       text-transform:uppercase;
+
+   }
+   .navbar-dark .navbar-nav .nav-item{
+
+   }
+
+
+.card {
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 320px;
+  margin: 2%;
+  text-align: center;
+  font-family: arial;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
+
+
+img {
+  border-radius: 100%;
+}
+
+</style>
+</body>
+</html>

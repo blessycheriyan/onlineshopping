@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="col-auto">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="adminlogout1">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+{% block content %}
+<div class="container justify-content-center">
+    <div class="card container mt-5" style="min-width:50%;margin:0 auto;background-color:#023474;color:#023474;max-width:50%;">
+        <div class="card-body">
+            <h1 style="color:white;text-align:center;margin-bottom:-3%;margin-top:25px;">REGISTER</h1><br>
+            <form method="POST" action="productregister" enctype="multipart/form-data">
+                {% csrf_token%}
+                <table class="table">
+                      <center><h5><i>{{error}}</i></h5></center>
+                    <tr>
+                        <div class="cardp input-group">
+                            <td>
+                                <div class="d-inline">
+                                    <span class="input-group-addon"> <i class="fa fa-user icon" ></i></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="d-inline">
+                                    <input type="text" class="form-control" name="name" placeholder="Product Name">
+                                </div>
+                            </td>
+                        </div>
+
+                    </tr>
+                        <div class="cardp input-group">
+                            <td>
+                                <div class="d-inline">
+                                    <span class="input-group-addon"> <i class="fa fa-image icon"></i></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="d-inline">
+                                    <input type="file" class="form-control" name="images" placeholder="Image" >
+                                </div>
+                            </td>
+                        </div>
+                    </tr>
+                    <tr>
+                        <div class="cardp input-group">
+                            <td>
+                                <div class="d-inline">
+                                    <span class="input-group-addon"> <i class="fa fa-inr icon"></i></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="d-inline">
+                                    <input type="text" class="form-control" name="price" placeholder="Price" />
+                                </div>
+                            </td>
+                        </div>
+                    </tr>
+
+                </table>
+                <div class="d-flex justify-content-center">
+                    <input type="submit" class="btn btn-info " value="Submit">
+                </div>
+             </form><br>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+<style type="text/css">
+
+body{
+
+	background-image:url("{%static 'img/sar200.jpg' %}");
+	background-size:cover;
+
+
+}
+.bg-dark{
+      background-color:#04207e !important;
+   }
+   .navbar-brand{
+
+      font-weight:bold;
+      font-family:monospace;
+      font-size:38px;
+   }
+   .navbar-dark .navbar-nav .nav-link{
+
+       font-weight:700;
+       font-size:14px;
+       text-transform:uppercase;
+
+   }
+   .navbar-dark .navbar-nav .nav-item{
+
+   }
+   h5{
+    color: red;
+
+}
+</style>
+</body>
+</html>

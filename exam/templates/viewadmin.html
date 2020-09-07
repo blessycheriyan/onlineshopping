@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if user %}
+<ol>
+    {% for e in user %}
+    <li> <h1 class="title">Admin Details</h1> </li>
+    <ul>
+        <li>name{{e.name}}</li>
+        <li>password{{e.password}}</li>
+
+
+    </ul>
+    {% endfor %}
+</ol>
+{% endif %}
+
+
+</body>
+</html>
